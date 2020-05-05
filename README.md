@@ -1,4 +1,4 @@
-# hotel-power-automation
+# hotel-power-automation- Sahaj Problem Statement
 
 Hello! This is a simple Maven Java project implementing the assignment on Hotel Automation Controller.
 
