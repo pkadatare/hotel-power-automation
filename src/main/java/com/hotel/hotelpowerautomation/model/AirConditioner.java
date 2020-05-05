@@ -1,23 +1,35 @@
 package com.hotel.hotelpowerautomation.model;
 
+import static com.hotel.hotelpowerautomation.util.Constants.AC_UNIT;
+
+import java.time.LocalDateTime;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class AirConditioner implements Device {
 
-  //TODO this should be added the property file
-  public static final int AC_POWER_UNITS = 15;
-
   private boolean state;
+  private LocalDateTime lastActivityTime;
 
   public AirConditioner() {
-    this.state=true;
+    this.state = true;
   }
 
-  @Override
-  public void action(boolean turnOn) {
-    state = turnOn;
+  public AirConditioner(boolean state) {
+    this.state = state;
   }
 
   @Override
   public int units() {
-    return AC_POWER_UNITS;
+    return AC_UNIT;
   }
+
+  @Override
+  public String toString() {
+    return " AC : " + getStatus(state);
+  }
+
+
 }

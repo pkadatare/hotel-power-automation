@@ -1,23 +1,31 @@
 package com.hotel.hotelpowerautomation.model;
 
+import static com.hotel.hotelpowerautomation.util.Constants.LIGHT_UNIT;
+
+import java.time.LocalDateTime;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Light implements Device {
 
-  //TODO this should be added the property file
-  public static final int LIGHT_POWER_UNITS = 5;
-
+  private int index;
   private boolean state;
+  private LocalDateTime lastActivityTime;
 
-  public Light(){
-    this.state=true;
-  }
-
-  @Override
-  public void action(boolean turnOn) {
-    state = turnOn;
+  public Light(int index, boolean state) {
+    this.index = index;
+    this.state = state;
   }
 
   @Override
   public int units() {
-    return LIGHT_POWER_UNITS;
+    return LIGHT_UNIT;
+  }
+
+  @Override
+  public String toString() {
+    return " Light " + index + " : " + getStatus(state);
   }
 }
